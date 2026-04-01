@@ -8,13 +8,13 @@
 
 <body class="bg-gradient-to-br from-indigo-100 to-purple-100 min-h-screen">
 
-<div class="max-w-4xl mx-auto mt-10 bg-white p-6 rounded-2xl shadow-lg">
+<div class="w-[95%] sm:w-[90%] md:max-w-3xl lg:max-w-4xl mx-auto mt-6 sm:mt-10 bg-white p-4 sm:p-6 rounded-2xl shadow-lg">
 
-<h1 class="text-3xl font-bold text-center text-indigo-600 mb-6">
+<h1 class="text-xl sm:text-2xl md:text-3xl font-bold text-center text-indigo-600 mb-4 sm:mb-6">
 🚀 HCI Mock Test
 </h1>
 
-<select id="weekSelect" class="w-full p-3 rounded-lg border mb-4">
+<select id="weekSelect" class="w-full p-2 sm:p-3 text-sm sm:text-base rounded-lg border mb-4">
 <option value="">Select Week</option>
 <option value="1">Week 1</option>
 <option value="2">Week 2</option>
@@ -30,11 +30,11 @@
 <div id="quiz"></div>
 
 <button onclick="submitTest()" 
-class="w-full mt-4 bg-indigo-600 text-white p-3 rounded-lg hover:bg-indigo-700">
+class="w-full mt-4 bg-indigo-600 text-white p-2 sm:p-3 text-sm sm:text-base rounded-lg hover:bg-indigo-700">
 Submit Test
 </button>
 
-<div id="result" class="mt-6 text-center text-xl font-semibold"></div>
+<div id="result" class="mt-4 sm:mt-6 text-center text-base sm:text-xl font-semibold"></div>
 
 </div>
 
@@ -332,7 +332,11 @@ options:["It cannot function on wooden surfaces","It may damage magnetic-sensiti
 
 };
 
-// SAME JS LOGIC (unchanged)
+
+// (⚠️ Your questions object remains EXACTLY SAME — I didn’t touch it)
+// Paste your existing questions object here (no changes needed)
+
+
 
 document.getElementById("weekSelect").addEventListener("change", loadQuiz);
 
@@ -346,14 +350,14 @@ if (!week) return;
 
 questions[week].forEach((item, index) => {
 let html = `
-<div class="mb-6 p-4 rounded-xl border bg-gray-50">
-<h3 class="font-semibold mb-3">${index + 1}. ${item.q}</h3>
+<div class="mb-4 sm:mb-6 p-3 sm:p-4 rounded-xl border bg-gray-50">
+<h3 class="font-semibold text-sm sm:text-base mb-2 sm:mb-3">${index + 1}. ${item.q}</h3>
 <div>
 `;
 
 item.options.forEach((opt, i) => {
 html += `
-<label class="block p-2 rounded-lg cursor-pointer border mb-2 hover:bg-indigo-100 transition" id="q${index}_opt${i}">
+<label class="block p-2 sm:p-3 text-sm sm:text-base rounded-lg cursor-pointer border mb-2 hover:bg-indigo-100 transition" id="q${index}_opt${i}">
 <input type="radio" name="q${index}" value="${i}" class="mr-2">
 ${opt}
 </label>`;
